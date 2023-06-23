@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /var/www/html
+cd /var/www/html/server
 
 npm install 
 
