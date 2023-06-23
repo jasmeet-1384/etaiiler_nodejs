@@ -21,7 +21,7 @@ const routes = () => {
   router.use('/chat', chatRoute);
   router.get('/serverTest', (req,res) => {
     console.log("hi server started")
-    return res.json({message : "server started"})
+    return res.json({message : "server started jasmeet"})
   })
   return router;
 };
