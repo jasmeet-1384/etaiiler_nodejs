@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo 'run application_start.sh: ' >> /var/www/html/nodeserver/etaiiler_nodejs/server/deploy.log
+cd /var/www/html
 
-echo 'pm2 restart node build/index.js' >> /var/www/html/nodeserver/etaiiler_nodejs/server/deploy.log
-pm2 restart node build/index.js >> /var/www/html/nodeserver/etaiiler_nodejs/server/deploy.log
+
+pm2 stop node build/index.js 
+
+pm2 start node build/index.js
