@@ -5,4 +5,4 @@ echo 'cd /var/www/html/nodeserver/etaiiler_nodejs/server/' >> /var/www/html/node
 cd /var/www/html/nodeserver/etaiiler_nodejs/server/ >> /var/www/html/nodeserver/etaiiler_nodejs/server/deploy.log
 
 echo 'npm install' >> /var/www/html/nodeserver/etaiiler_nodejs/server/deploy.log 
-npm install >> /var/www/html/nodeserver/etaiiler_nodejs/deployserver/.log
+npm install >> /var/www/html/nodeserver/etaiiler_nodej/server/deploys/.log
