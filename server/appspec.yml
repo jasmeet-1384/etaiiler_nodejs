@@ -2,7 +2,7 @@ version: 0.0
 os: ubuntu
 files:
   - source: /
-    destination: /var/www/html/nodeserver/etaiiler_nodejs
+    destination: /var/www/html/nodeserver/etaiiler_nodejs/server
 hooks:
 # ApplicationStop:
 # DownloadBundle:
