@@ -10,7 +10,7 @@ const notificationTypeFunction = (name,notificationType) => {
     const notificationData = {
         like: {
             title: "Your post has been liked by " + name,
-            body: "Hey!"+name + " has liked your post"
+            body: "Hey!"+ name + " has liked your post"
         },
         follow: {
             title: name +" started following you",
@@ -18,11 +18,11 @@ const notificationTypeFunction = (name,notificationType) => {
         },
         comment: {
             title: name +" commented on your post",
-            body: "Hey!"+name+ " commented on your post"
+            body: "Hey!"+ name+ " commented on your post"
         },
         tag: {
             title: name + " tagged you",
-            body: "Hey!"+name + " tagged you in a post"
+            body: "Hey!"+ name + " tagged you in a post"
         },
         share: {
             title: name +" shared your post",
