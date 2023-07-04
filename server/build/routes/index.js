@@ -38,7 +38,7 @@ var routes = function routes() {
   router.get('/serverTest', function (req, res) {
     console.log("hi server started");
     return res.json({
-      message: "server started"
+      message: "server started jasmeet"
     });
   });
   return router;
