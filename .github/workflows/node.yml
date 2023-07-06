@@ -15,6 +15,10 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
+        appname: ['etaiiler-nodeserver-app-cd1']
+        deploy-group: ['etaiiler-nodeserver-app-dg1']
+        s3-bucket: ['etaiiler-nodeserver-aws-codedeploy-deployments']
+        s3-filename: ['staging-aws-codedeploy-${{ github.sha }}']
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,13 +35,26 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-      # Step 3
+  # Step 3
+   # Deploy push to AWS S3
+    - name: AWS Deploy push
+      run: |
+        aws deploy push \
+          --application-name ${{ matrix.appname }} \
+          --description "This is a revision for the ${{ matrix.appname }}-${{ github.sha }}" \
+          --ignore-hidden-files \
+          --s3-location s3://${{ matrix.s3-bucket }}/${{ matrix.s3-filename }}.zip \
+          --source .
+
+      # Step 4
     - name: Create CodeDeploy Deployment
       id: deploy
       run: |
         aws deploy create-deployment \
-        --application-name etaiiler-nodeserver-app-cd1 \
-        --deployment-group-name etaiiler-nodeserver-app-dg1 \
-        --deployment-config-name CodeDeployDefault.OneAtATime \
-        --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
+           --application-name ${{ matrix.appname }} \
+           --deployment-config-name CodeDeployDefault.OneAtATime \
+           --deployment-group-name ${{ matrix.deploy-group }} \
+           --file-exists-behavior OVERWRITE \
+           --s3-location bucket=${{ matrix.s3-bucket }},key=${{ matrix.s3-filename }}.zip,bundleType=zip \
+
     
