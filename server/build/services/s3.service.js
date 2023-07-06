@@ -18,7 +18,7 @@ var _crypto = _interopRequireDefault(require("crypto"));
 var _util = require("util");
 
 var randomBytes = (0, _util.promisify)(_crypto["default"].randomBytes);
-var region = "ap-south-1";
+var region = "us-east-1";
 var bucketName = "etaiiler-image-upload";
 var accessKeyId = process.env.AWS_ACCESS_KEY_ID;
 var secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
